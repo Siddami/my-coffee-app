@@ -4,17 +4,17 @@ import React from "react";
 const Header = () => {
   return (
     <header
-      className="bg-white text-black p-4 md:p-6 flex flex-col md:flex-row items-center justify-between mx-auto w-full gap-4 md:gap-8"
+      className="bg-white text-black px-6 py-8 flex flex-col md:flex-row items-center justify-between mx-auto w-full gap-4 md:gap-8"
       role="banner"
     >
       <Image
         src="/images/coffeebag.svg"
         alt="Coffee Store logo featuring a coffee bag"
-        className="w-full max-w-[150px] sm:max-w-[250px] h-auto rounded-full object-cover hidden sm:block" // Hidden <sm, scales up
+        className="w-full max-w-[150px] sm:max-w-[250px] h-auto rounded-full object-cover hidden md:block" 
         width={357}
         height={357}
       />
-      <div className="w-full sm:w-auto text-right sm:text-left flex flex-col gap-4">
+      <div className="w-full sm:w-auto text-center sm:text-left flex flex-col gap-4">
         <h1
           className="text-2xl sm:text-3xl md:text-5xl font-bold"
           id="store-name"
@@ -49,7 +49,7 @@ const Header = () => {
             </a>
         </div>
       </div>
-      <div className="flex items-center justify-end w-full sm:w-auto">
+      <div className="flex items-center justify-center md:justify-end w-full sm:w-auto">
         <Image
           src="/images/lolaandcoco.svg"
           alt="Lola and Coco, the store's dogs"
