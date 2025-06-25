@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
@@ -22,26 +22,40 @@ export const CategoryFilter = ({
   };
 
   return (
-    <div className="w-[344px] flex flex-col justify-between relative">
-      <h4 className="text-2xl font-bold text-gray-900">
+    <fieldset className="w-full max-w-[344px] flex flex-col space-y-4">
+      <legend className="text-2xl font-bold text-gray-900 mb-2">
         Categories
-      </h4>
+      </legend>
+
       {categories.map((cat) => (
-        <div key={cat.name} className="flex items-center mt-8">
+        <label
+          key={cat.name}
+          className="flex items-center gap-4 cursor-pointer group"
+        >
+          <input
+            type="checkbox"
+            checked={selected.includes(cat.name)}
+            onChange={() => toggleCategory(cat.name)}
+            className="sr-only"
+            aria-label={`${cat.name}, ${cat.count} items`}
+          />
+          {/* Custom checkbox */}
           <div
-            className="w-5 h-5 bg-white rounded flex items-center justify-center"
-            onClick={() => toggleCategory(cat.name)}
+            className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors duration-150 ${
+              selected.includes(cat.name)
+                ? "bg-green-900 border-gray-900"
+                : "bg-white border-gray-400 group-hover:border-gray-700"
+            }`}
           >
             {selected.includes(cat.name) && (
-              <div className="w-[18.75px] h-[18.75px] border-2 border-gray-900 rounded-sm"></div>
+              <div className="w-[10px] h-[10px] bg-white rounded-sm" />
             )}
           </div>
-          <span className="ml-6 text-xl text-gray-900">{`${cat.name} (${cat.count})`}</span>
-        </div>
+          <span className="text-xl text-gray-900">
+            {cat.name} ({cat.count})
+          </span>
+        </label>
       ))}
-      <div className="absolute top-2 right-4 w-6 h-6 overflow-hidden">
-        <div className="w-4 h-2 border-2 border-gray-900 ml-1 mt-2"></div>
-      </div>
-    </div>
+    </fieldset>
   );
 };
