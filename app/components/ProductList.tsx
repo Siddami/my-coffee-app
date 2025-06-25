@@ -13,7 +13,7 @@ interface ProductListProps {
 }
 
 export default function ProductList({ initialProducts }: ProductListProps) {
-  const [products, setProducts] = useState(initialProducts);
+  const [products] = useState(initialProducts);
   const [filteredProducts, setFilteredProducts] = useState(initialProducts);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -28,7 +28,7 @@ export default function ProductList({ initialProducts }: ProductListProps) {
   ];
 
   // Close sidebar after filter application
-  const handleFilterAction = (callback: (arg: string) => void) => (value: string) => {
+  const handleFilterAction = <T,>(callback: (arg: T) => void) => (value: T) => {
     callback(value);
     setIsFilterOpen(false); // It Auto-closes on filter change
   };
@@ -48,9 +48,14 @@ export default function ProductList({ initialProducts }: ProductListProps) {
     setFilteredProducts(filtered);
   });
 
-  const handleDietaryChange = handleFilterAction((dietary: string) => {
-    const dietArray = dietary.split(",").filter(Boolean);
-    setFilteredProducts(products); // Placeholder
+  const handleDietaryChange = handleFilterAction((dietary: string[]) => {
+    const dietArray = dietary.filter(Boolean);
+    const filtered = products.filter(
+      (p) =>
+        !dietArray.length ||
+        dietArray.every((d) => p.dietaryOptions.includes(d))
+    );
+    setFilteredProducts(filtered);
   });
 
   const handleSortChange = (sort: string) => {
