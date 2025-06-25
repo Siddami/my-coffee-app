@@ -1,5 +1,6 @@
 import { fetchProducts } from "../utils/fetchData";
-import ProductList from "./components/ProductList"; // New Client Component
+import { Product } from "../types/product";
+import ProductList from "./components/ProductList";
 
 export default async function Home() {
   const initialProducts = await fetchProducts();
