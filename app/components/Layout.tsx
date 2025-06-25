@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Header from "./Header";
 
 interface LayoutProps {
   children: ReactNode;
@@ -9,86 +10,65 @@ interface LayoutProps {
 
 export const Layout = ({ children, activeTab }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div
+      className="min-h-screen mx-auto flex flex-col gap-4 sm:gap-6 md:gap-8 lg:gap-10"
+      role="main"
+    >
       <Image
         src="/images/coverphoto.svg"
         alt="Cover photo of the coffee store"
-        className="w-full h-64 object-cover"
-        width={64}
-        height={64}
+        className="w-full h-40 object-cover sm:h-52 md:h-64 lg:h-80"
+        width={1440}
+        height={360}
         priority
       />
-      <header className="bg-white text-black p-6 flex items-center justify-between max-w-8xl">
-        <div className="flex items-center space-x-4">
-          <Image
-            src="/images/coffeebag.svg"
-            alt="Coffee Store Logo a coffee bag"
-            className="w-[357px] h-[357px] bg-gray-300 rounded-full object-cover"
-            width={357}
-            height={357}
-          />
-          <div className="text-right">
-            <h1 className="text-5xl font-bold">Coffee Store</h1>
-            <p className="text-2xl">Odessa, ON</p>
-            <div className="flex items-center mt-4">
-              <div className="flex items-center justify-center mr-4">
-                <Image
-                  src="/images/location.svg"
-                  alt="Location icon"
-                  className="w-6 w-6 align start"
-                  width={12}
-                  height={12}
-                />
-                <div className="text-base flex flex-col items-center">
-                  <p>Location</p>
-                  <p>(Pick Up):</p>
-                </div>
-              </div>
-              <address className="text-base">
-                3 McAlpine St, Toronto, ON, CA, M5R 3T5
-              </address>
-              <a
-                href="https://maps.google.com"
-                className="ml-4 text-cyan-400 text-2xl"
-              >
-                Get Direction
-              </a>
-            </div>
-          </div>
-        </div>
-        <div className="flex items-center">
-          <Image
-            src="/images/lolaandcoco.svg"
-            alt="Lola and coco the dog"
-            className="w-[155px] h-[155px] bg-gray-400 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.25)]"
-            width={155}
-            height={155}
-          />
-        </div>
-      </header>
-      <nav className="w-full bg-white border-b border-gray-500">
-        <div className="container mx-auto flex justify-start items-center h-16">
+
+      {/* Header */}
+      <Header />
+
+      {/* Navigation */}
+      <nav
+        className="w-full bg-white border-b border-gray-500 pb-4"
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <div className="container mx-auto flex flex-col md:flex-row justify-start items-center h-10 sm:h-12 md:h-16 px-2 sm:px-4">
           <Link
             href="/"
-            className={`px-4 py-2 text-2xl text-gray-800 ${
+            className={`px-2 py-1 text-sm sm:text-lg md:text-2xl text-gray-800 ${
               activeTab === "products" ? "font-bold" : "font-normal"
-            }`}
+            } focus:outline-none focus:ring-2 focus:ring-gray-500`}
             aria-current={activeTab === "products" ? "page" : undefined}
+            aria-label={
+              activeTab === "products"
+                ? "Current page, Products"
+                : "Go to Products"
+            }
           >
             Products
           </Link>
           <Link
             href="/photos"
-            className={`px-4 py-2 text-2xl text-gray-800 ${
+            className={`px-2 py-1 text-sm sm:text-lg md:text-2xl text-gray-800 ${
               activeTab === "photos" ? "font-bold" : "font-normal"
-            }`}
+            } focus:outline-none focus:ring-2 focus:ring-gray-500`}
             aria-current={activeTab === "photos" ? "page" : undefined}
+            aria-label={
+              activeTab === "photos" ? "Current page, Photos" : "Go to Photos"
+            }
           >
             Photos
           </Link>
         </div>
       </nav>
-      <main className="flex-1 container mx-auto p-4">{children}</main>
+
+      {/* Main Content */}
+      <main
+        className="flex-1 container mx-auto p-2 sm:p-4 max-w-[1440px]"
+        id="main-content"
+      >
+        {children}
+      </main>
     </div>
   );
 };
