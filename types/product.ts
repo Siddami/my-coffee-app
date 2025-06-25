@@ -5,5 +5,5 @@ export interface Product {
   image: string;
   category: string;
   brand: string;
-  brandImage?: string;
+  brandImage: string;
 }
