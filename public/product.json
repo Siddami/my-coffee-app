@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "Cappuccino",
+    "price": 8.0,
+    "image": "/images/cappachino.svg",
+    "category": "Coffee",
+    "brand": "Minden Bakery",
+    "brandImage": "/images/brand.svg"
+  },
+  {
+    "id": 2,
+    "name": "Matcha Latte",
+    "price": 10.0,
+    "image": "/images/matchaLatte.svg",
+    "category": "Coffee",
+    "brand": "Minden Bakery",
+    "brandImage": "/images/brand.svg"
+  },
+  {
+    "id": 3,
+    "name": "Golden Latte",
+    "price": 8.0,
+    "image": "/images/goldenlatte.svg",
+    "category": "Baked Goods",
+    "brand": "Minden Bakery",
+    "brandImage": "/images/brand.svg"
+  },
+  {
+    "id": 4,
+    "name": "Hot Chocolate",
+    "price": 12.0,
+    "image": "/images/hotchocolate.svg",
+    "category": "Baked Goods",
+    "brand": "Minden Bakery",
+    "brandImage": "/images/brand.svg"
+  },
+  {
+    "id": 5,
+    "name": "Iced Latte",
+    "price": 12.0,
+    "image": "/images/icedlatte.svg",
+    "category": "Coffee",
+    "brand": "Minden Bakery",
+    "brandImage": "/images/brand.svg"
+  },
+  {
+    "id": 6,
+    "name": "Plain Croissant",
+    "price": 20.0,
+    "image": "/images/plaincroissant.svg",
+    "category": "Baked Goods",
+    "brand": "Minden Bakery",
+    "brandImage": "/images/brand.svg"
+  },
+  {
+    "id": 7,
+    "name": "French Macaron",
+    "price": 30.0,
+    "image": "/images/frenchmacaroon.svg",
+    "category": "Baked Goods",
+    "brand": "Minden Bakery",
+    "brandImage": "/images/brand.svg"
+  },
+  {
+    "id": 8,
+    "name": "Original Blend Coffee",
+    "price": 12.99,
+    "image": "/images/originalbrandcoffee.svg",
+    "category": "Coffee",
+    "brand": "Minden Bakery",
+    "brandImage": "/images/brand.svg"
+  },
+  {
+    "id": 9,
+    "name": "Energy Cookie",
+    "price": 28.0,
+    "image": "/images/energycookie.svg",
+    "category": "Baked Goods",
+    "brand": "Minden Bakery",
+    "brandImage": "/images/brand.svg"
+  }
+]
