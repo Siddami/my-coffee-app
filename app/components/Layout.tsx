@@ -32,7 +32,7 @@ export const Layout = ({ children, activeTab }: LayoutProps) => {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="container mx-auto flex flex-col md:flex-row justify-start items-center h-10 sm:h-12 md:h-16 px-2 sm:px-4">
+        <div className="container mx-auto flex justify-start items-center h-10 sm:h-12 md:h-16 gap-20 ">
           <Link
             href="/"
             className={`px-2 py-1 text-sm sm:text-lg md:text-2xl text-gray-800 ${
