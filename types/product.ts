@@ -6,4 +6,5 @@ export interface Product {
   category: string;
   brand: string;
   brandImage: string;
+  dietaryOptions: string[];
 }

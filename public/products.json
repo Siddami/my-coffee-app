@@ -6,7 +6,8 @@
     "image": "/images/cappachino.svg",
     "category": "Coffee",
     "brand": "Minden Bakery",
-    "brandImage": "/images/brand.svg"
+    "brandImage": "/images/brand.svg",
+    "dietaryOptions": ["Vegetarian", "Gluten-Free"]
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "image": "/images/matchaLatte.svg",
     "category": "Coffee",
     "brand": "Minden Bakery",
-    "brandImage": "/images/brand.svg"
+    "brandImage": "/images/brand.svg",
+    "dietaryOptions": ["Vegan", "Gluten-Free"]
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "image": "/images/goldenlatte.svg",
     "category": "Baked Goods",
     "brand": "Minden Bakery",
-    "brandImage": "/images/brand.svg"
+    "brandImage": "/images/brand.svg",
+    "dietaryOptions": ["Eco Friendly", "Gluten-Free", "Nut Free"]
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "image": "/images/hotchocolate.svg",
     "category": "Baked Goods",
     "brand": "Minden Bakery",
-    "brandImage": "/images/brand.svg"
+    "brandImage": "/images/brand.svg",
+    "dietaryOptions": ["Eco Friendly"]
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "image": "/images/icedlatte.svg",
     "category": "Coffee",
     "brand": "Minden Bakery",
-    "brandImage": "/images/brand.svg"
+    "brandImage": "/images/brand.svg",
+    "dietaryOptions":["Nut Free","Eco Friendly"]
   },
   {
     "id": 6,
@@ -51,7 +56,8 @@
     "image": "/images/plaincroissant.svg",
     "category": "Baked Goods",
     "brand": "Minden Bakery",
-    "brandImage": "/images/brand.svg"
+    "brandImage": "/images/brand.svg",
+    "dietaryOptions":["Nut Free", "Vegan", "Gluten-Free"]
   },
   {
     "id": 7,
@@ -60,7 +66,8 @@
     "image": "/images/frenchmacaroon.svg",
     "category": "Baked Goods",
     "brand": "Minden Bakery",
-    "brandImage": "/images/brand.svg"
+    "brandImage": "/images/brand.svg",
+    "dietaryOptions":["Vegan","Eco Friendly"]
   },
   {
     "id": 8,
@@ -69,7 +76,8 @@
     "image": "/images/originalbrandcoffee.svg",
     "category": "Coffee",
     "brand": "Minden Bakery",
-    "brandImage": "/images/brand.svg"
+    "brandImage": "/images/brand.svg",
+    "dietaryOptions": ["Gluten-Free", "Nut Free"]
   },
   {
     "id": 9,
@@ -78,6 +86,7 @@
     "image": "/images/energycookie.svg",
     "category": "Baked Goods",
     "brand": "Minden Bakery",
-    "brandImage": "/images/brand.svg"
+    "brandImage": "/images/brand.svg",
+    "dietaryOptions":["Eco Friendly", "Gluten-Free", "Nut Free"]
   }
 ]
