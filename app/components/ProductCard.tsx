@@ -8,7 +8,7 @@ interface ProductCardProps {
 export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div
-      className="relative w-[390px] h-[551px] shadow-[0_0_5px_rgba(0,0,0,0.25)] bg-white rounded-lg overflow-hidden"
+      className="relative w-[300px] h-[500px] shadow-[0_0_5px_rgba(0,0,0,0.25)] bg-white rounded-lg overflow-hidden"
       role="article"
     >
       <Image
@@ -21,10 +21,15 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         className="w-full h-[333px] object-cover bg-gray-200"
       />
       <div className="absolute top-6 right-6 w-9 h-9 bg-white/98 rounded-full flex items-center justify-center">
-        <div
-          className="w-[18.87px] h-[17.69px] bg-red-500 rounded-full"
-          aria-label="Add to favorites"
-        ></div>
+        <Image
+            src="/images/heart.svg" 
+            alt="Favorite icon"
+            width={24}
+            height={24}
+            className="w-6 h-6"
+            loading="lazy"
+            aria-label="Favorite product"
+        />
       </div>
       <div className="px-7 pt-7">
         <h3
