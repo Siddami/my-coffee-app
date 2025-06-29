@@ -14,6 +14,7 @@ Responsive Product Listing: Displays products in a grid layout with 1 column on 
 4. Accessibility: Implements ARIA labels, keyboard navigation, and sufficient color contrast for an inclusive experience.
 5. Overlay Sidebar: On small screens, the filter sidebar overlays the product list, auto-closing after filter application or manual closure.
 Tools and Technologies
+6. Loader: displays before data pops up.
 
 Framework: Next.js - For server-side rendering and static site generation.
 Language: TypeScript - For type safety and improved development experience.
