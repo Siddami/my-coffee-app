@@ -14,8 +14,10 @@ interface ProductListProps {
 
 export default function ProductList({ initialProducts }: ProductListProps) {
   const [products] = useState(initialProducts);
-  const [filteredProducts, setFilteredProducts] = useState(initialProducts);
+  const [filteredProducts, setFilteredProducts] =
+    useState<Product[]>(initialProducts);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [loading, setLoading] = useState(true); // Add loading state
 
   const categories = [
     { name: "Baked Goods", count: 8 },
@@ -28,10 +30,16 @@ export default function ProductList({ initialProducts }: ProductListProps) {
   ];
 
   // Close sidebar after filter application
-  const handleFilterAction = <T,>(callback: (arg: T) => void) => (value: T) => {
-    callback(value);
-    setIsFilterOpen(false); // It Auto-closes on filter change
-  };
+  const handleFilterAction =
+    <T,>(callback: (arg: T) => void) =>
+    (value: T) => {
+      setLoading(true); 
+      setTimeout(() => {
+        callback(value);
+        setIsFilterOpen(false);
+        setLoading(false); 
+      }, 500); 
+    };
 
   const handleSearch = handleFilterAction((query: string) => {
     const filtered = products.filter((p) =>
@@ -59,15 +67,26 @@ export default function ProductList({ initialProducts }: ProductListProps) {
   });
 
   const handleSortChange = (sort: string) => {
-    const sorted = [...filteredProducts].sort((a, b) =>
-      sort === "Bestselling" ? a.price - b.price : 0
-    );
-    setFilteredProducts(sorted);
+    setLoading(true); // Start loading when sorting
+    setTimeout(() => {
+      const sorted = [...filteredProducts].sort((a, b) =>
+        sort === "Bestselling" ? a.price - b.price : 0
+      );
+      setFilteredProducts(sorted);
+      setLoading(false); // Stop loading after delay
+    }, 500); // Simulate processing delay
   };
 
   const handleImageToggle = (showImages: boolean) => {
     console.log("Image visibility toggled:", showImages);
   };
+
+  // Simulate initial data processing or loading
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false); // Stop loading after initial render
+    }, 500); // Simulate initial data load delay
+  }, []);
 
   // Close sidebar when clicking outside
   useEffect(() => {
@@ -120,24 +139,31 @@ export default function ProductList({ initialProducts }: ProductListProps) {
             onImageToggle={handleImageToggle}
             className="w-full"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))
-            ) : (
-              <p className="text-center text-red-600" role="alert">
-                No products available.
-              </p>
-            )}
-          </div>
+          {loading ? (
+            <div className="flex items-center justify-center w-full h-64">
+              <div className="w-12 h-12 border-4 border-t-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+              {filteredProducts.length > 0 ? (
+                filteredProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))
+              ) : (
+                <p className="text-center text-red-600" role="alert">
+                  No products available.
+                </p>
+              )}
+            </div>
+          )}
         </main>
       </div>
 
       {/* Mobile Sidebar Overlay */}
       <div
-        className={`fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 transition-all duration-500 ease-in-out
- ${isFilterOpen ? "opacity-100" : "opacity-0 pointer-events-none"} lg:hidden`}
+        className={`fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 transition-all duration-500 ease-in-out ${
+          isFilterOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        } lg:hidden`}
       >
         <div
           className={`sidebar-overlay absolute left-0 top-0 w-3/4 sm:w-1/2 max-w-[344px] h-full bg-white p-4 space-y-6 overflow-y-auto transition-transform duration-300 transform ${
